@@ -108,13 +108,55 @@ img {
   position: fixed;
   overflow: hidden;
   top: 0;
-  height: calc(100% - 150px);
+  height: calc(100% - 105px);
   left: 0;
   width: 100%;
   background-image: url("../images/Products/BMW/2015-BMW-F800R-New1.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+#raf-separator {
+  position: fixed;
+  background-color: black;
+  bottom: 100px;
+  height: 5px;
+  left: 0;
+  width: 100%;
+}
+#raf-strip {
+  position: fixed;
+  background-color: black;
+  bottom: 0;
+  height: 100px;
+  left: calc(50% - 550px);
+  width: 1100px;
+}
+#raf-strip__05 {
+  opacity: 1;
+  background-image: url("../images/Products/BMW/BMW.svg");
+  background-position: center;
+  background-size: 50px;
+  background-repeat: no-repeat;
+}
+#raf-strip__04, #raf-strip__06 {
+  opacity: 0.9;
+}
+#raf-strip__03, #raf-strip__07 {
+  opacity: 0.8;
+}
+#raf-strip__02, #raf-strip__08 {
+  opacity: 0.7;
+}
+#raf-strip__01, #raf-strip__09 {
+  opacity: 0.6;
+}
+#raf-strip__00, #raf-strip__10 {
+  opacity: 0.5;
+}
+.raf-strip__logo {
+  background-color: white;
+  width: 150px;
 }
 @keyframes reveal {
   from {
