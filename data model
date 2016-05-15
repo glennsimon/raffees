@@ -1,0 +1,53 @@
+{
+	"people": {
+		authUidString: {
+			"todaysTokens": Number,
+			"items": [
+				Number [item number]: [
+					tokenAutoHash: Firebase.ServerValue.TIMESTAMP,
+					tokenAutoHash: Firebase.ServerValue.TIMESTAMP,
+					...
+				],
+				Number: [],
+				...
+			],
+			"online": {
+				deviceAutoHash: true,
+				...
+			},
+			"provider": String,
+			"userName": String
+		},
+		...
+	},
+	"activeItems": [
+		itemObject,
+		itemObject,
+		...
+	],
+	"pastItems": [
+		itemObject,
+		itemObject,
+		...
+	],
+	"tokens": 
+		Number [item number]: [
+			tokenAutoHash: authUidString,
+			tokenAutoHash: authUidString,
+			...
+		],
+		Number: [],
+		...
+	]
+}
+
+itemObject = {
+	"item": Number,
+	"name": String,
+	"heroUrl": String [Example: "../images/Products/BMW/2015-BMW-F800R-New1.jpg"],
+	"logoUrl": String [Example: "../images/Products/BMW/BMW.svg"],
+	"siteUrl": String [Example: "http://www.bmwmotorcycles.com/us/en/index.html?..."],
+	"raffleStartTime": Firebase.ServerValue.TIMESTAMP,
+	"raffleEndTime": Firebase.ServerValue.TIMESTAMP,
+	"active": Boolean
+}
