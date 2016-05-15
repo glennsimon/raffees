@@ -1,0 +1,150 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+Note: any .css or .scss files included in the 'styles' directory
+will be correctly compiled during `gulp serve` and `gulp`
+ */
+
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+img {
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0px);
+  max-height: 100%;
+}
+.raf-flex {
+  display: flex;
+}
+.raf-flex--horizontal {
+  flex-direction: row;
+}
+.raf-flex--vertical {
+  flex-direction: column;
+}
+.raf-flex--center {
+  justify-content: center;
+  align-items: center;
+}
+.raf-flex--1 {
+  flex: auto;
+}
+.raf-zero-height {
+  height: 0;
+}
+.raf-hidden {
+  display: none;
+}
+#raf-splash {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: #aaa;
+  z-index: 10;
+  text-align: center;
+  animation: hide 2s 10s forwards;
+}
+.raf-splash--content {
+  height: 100%;
+}
+#raf-token {
+  height: 50px;
+  width: 50px;
+  background-color: gold;
+  border: 2px dotted white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: reveal 2s 6s forwards, fallingToken 1s 6s forwards;
+}
+.raf-token--R {
+  color: white;
+  font-size: 200%;
+}
+#raf-name {
+  opacity: 0;
+  font-size: 200%;
+  animation: reveal 2s forwards, moveUp 1s 2s forwards;
+}
+#raf-sub1 {
+  opacity: 0;
+  animation: moveUp 1s 2s forwards, reveal 1s 2s forwards;
+  overflow: hidden;
+}
+#raf-sub2 {
+  opacity: 0;
+  animation: moveUp 1s 2s forwards, reveal 2s ease 4s forwards;
+  overflow: hidden;
+}
+#raf-content {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#raf-hero {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  height: calc(100% - 150px);
+  left: 0;
+  width: 100%;
+  background-image: url("../images/Products/BMW/2015-BMW-F800R-New1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes moveUp {
+  from {
+    transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    transform: translate3d(0px, -20px, 0px);
+  }
+}
+@keyframes fallingToken {
+  from {
+    transform: translate3d(0px, -200px, 0px) rotate(720deg);
+  }
+  to {
+    transform: translate3d(0px, -20px, 0px) rotate(0deg);
+  }
+}
