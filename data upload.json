@@ -1,0 +1,149 @@
+{
+  "people": {
+    "gs100": {
+      "userName": "Glenn",
+      "email": "glenncochransimon@gmail.com",
+      "todaysTokens": 5,
+      "provider": "google"
+    },
+    "rs101": {
+      "userName": "Bob",
+      "email": "bob@logotogo.com",
+      "todaysTokens": 5,
+      "provider": "google"
+    }
+  },
+  "activeItems": [{
+    "itemNumber": 0,
+    "name": "BMW F800R motorcycle",
+    "heroUrl": "../images/Products/BMW/2015-BMW-F800R-New1.jpg",
+    "logoUrl": "../images/Products/BMW/BMW.svg",
+    "siteUrl": "http://www.bmwmotorcycles.com/us/en/index.html?content=http://www.bmwmotorcycles.com/us/en/fascination/specials/3asyride/intro.html&gclid=CjwKEAjwxce4BRDE2dG4ueLArHMSJADStCqMoosWHkkWE3fdLSL_drxYpoimoEBPfNeg9pFMCPV7XxoCsI7w_wcB&notrack=1",
+    "logoWidth": 50,
+    "heroBackground": "gray",
+    "raffleStartTime": 1463360620037,
+    "raffleEndTime": 1466860620037,
+    "active": true
+  },{
+    "itemNumber": 1,
+    "name": "3DR drone package",
+    "heroUrl": "../images/Products/3DR drone/drone-backpack-solo.jpg",
+    "logoUrl": "../images/Products/3DR drone/3d-robotics-squarelogo-1433454961192.png",
+    "siteUrl": "http://www.apple.com/shop/buy-iphone/iphone6s",
+    "logoWidth": 75,
+    "heroBackground": "white",
+    "raffleStartTime": 1463360620037,
+    "raffleEndTime": 1466860620037,
+    "active": true
+  },{
+    "itemNumber": 2,
+    "name": "Apple 6S",
+    "heroUrl": "../images/Products/apple 6S/iphone6s-gallery3-2015.png",
+    "logoUrl": "../images/Products/apple 6S/Apple_logo_black.svg",
+    "siteUrl": "http://www.apple.com/shop/buy-iphone/iphone6s",
+    "logoWidth": 50,
+    "heroBackground": "white",
+    "raffleStartTime": 1463360620037,
+    "raffleEndTime": 1466860620037,
+    "active": true
+  },{
+    "itemNumber": 3,
+    "name": "Birkenstock sandals",
+    "heroUrl": "../images/Products/birkenstock sandals/Homepage_Rotating_Women_03.jpg",
+    "logoUrl": "../images/Products/birkenstock sandals/Birkenstock_logo.svg",
+    "siteUrl": "https://www.birkenstockusa.com/",
+    "logoWidth": 75,
+    "heroBackground": "gray",
+    "raffleStartTime": 1463360620037,
+    "raffleEndTime": 1466860620037,
+    "active": true
+  },{
+    "itemNumber": 4,
+    "name": "Chromebook pixel",
+    "heroUrl": "../images/Products/chromebook pixel/google_chromebook_pixel_2015_left-side-100572822-orig.jpg",
+    "logoUrl": "../images/Products/chromebook pixel/Chrome_Logo.svg",
+    "siteUrl": "https://store.google.com/product/chromebook_pixel_2015",
+    "logoWidth": 75,
+    "heroBackground": "gray",
+    "raffleStartTime": 1463360620037,
+    "raffleEndTime": 1466860620037,
+    "active": true
+  },{
+    "itemNumber": 5,
+    "name": "Nexus 5X",
+    "heroUrl": "../images/Products/nexus 5X/5x-buy-white-1200.jpg",
+    "logoUrl": "../images/Products/nexus 5X/Google_Nexus.svg",
+    "siteUrl": "https://store.google.com/product/nexus_5x?config&utm_source=google-com-nexus&utm_medium=index&utm_campaign=nexus-5x",
+    "logoWidth": 75,
+    "heroBackground": "white",
+    "raffleStartTime": 1463360620037,
+    "raffleEndTime": 1466860620037,
+    "active": true
+  },{
+    "itemNumber": 6,
+    "name": "MacBook Air",
+    "heroUrl": "../images/Products/Apple macbook air/overview_wireless_hero_enhanced_2x.png",
+    "logoUrl": "../images/Products/apple 6S/Apple_logo_black.svg",
+    "siteUrl": "http://www.apple.com/macbook-air/",
+    "logoWidth": 50,
+    "heroBackground": "white",
+    "raffleStartTime": 1463360620037,
+    "raffleEndTime": 1466860620037,
+    "active": true
+  },{
+    "itemNumber": 7,
+    "name": "Ford F150 truck",
+    "heroUrl": "../images/Products/ford truck/maxresdefault.jpg",
+    "logoUrl": "../images/Products/ford truck/Ford_Motor_Company_Logo.svg",
+    "siteUrl": "http://www.ford.com/trucks/f150/?fmccmp=lp-trucks-top-hp-f-150",
+    "logoWidth": 75,
+    "heroBackground": "gray",
+    "raffleStartTime": 1463360620037,
+    "raffleEndTime": 1466860620037,
+    "active": true
+  },{
+    "itemNumber": 8,
+    "name": "GoPro HERO4",
+    "heroUrl": "../images/Products/GoPro/CHDHX-401_main1.jpg",
+    "logoUrl": "../images/Products/GoPro/GoPro_logo.svg",
+    "siteUrl": "http://shop.gopro.com/hero4/hero4-black/CHDHX-401.html",
+    "logoWidth": 75,
+    "heroBackground": "white",
+    "raffleStartTime": 1463360620037,
+    "raffleEndTime": 1466860620037,
+    "active": true
+  },{
+    "itemNumber": 9,
+    "name": "Honda Lawn Mower",
+    "heroUrl": "../images/Products/honda lawnmower/HRR2168PKAPE_IMGLG.jpg",
+    "logoUrl": "../images/Products/honda lawnmower/Honda-logo.svg",
+    "siteUrl": "http://powerequipment.honda.com/lawn-mowers/models/hrr216pka",
+    "logoWidth": 75,
+    "heroBackground": "white",
+    "raffleStartTime": 1463360620037,
+    "raffleEndTime": 1466860620037,
+    "active": true
+  },{
+    "itemNumber": 10,
+    "name": "Nexus 6P",
+    "heroUrl": "../images/Products/nexus 6P/featured1.jpg",
+    "logoUrl": "../images/Products/nexus 6P/Google_Nexus.svg",
+    "siteUrl": "https://store.google.com/product/nexus_6p?gl=us",
+    "logoWidth": 75,
+    "heroBackground": "white",
+    "raffleStartTime": 1463360620037,
+    "raffleEndTime": 1466860620037,
+    "active": true
+  },{
+    "itemNumber": 11,
+    "name": "Rolex Oyster Perpetual 39",
+    "heroUrl": "../images/Products/Rolex/Rolex Oyster Perpetual 39 3.jpg",
+    "logoUrl": "../images/Products/Rolex/link.svg",
+    "siteUrl": "http://www.rolex.com/watches/oyster-perpetual/m114300-0001.html",
+    "logoWidth": 75,
+    "heroBackground": "gray",
+    "raffleStartTime": 1463360620037,
+    "raffleEndTime": 1466860620037,
+    "active": true
+  } ]
+}

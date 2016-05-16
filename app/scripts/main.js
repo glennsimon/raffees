@@ -20,6 +20,8 @@
 (function() {
   'use strict';
 
+  var querySelector = document.querySelector.bind(document);
+
   // Check to make sure service workers are supported in the current browser,
   // and that the current page is accessed from a secure origin. Using a
   // service worker from an insecure origin will trigger JS console errors. See
@@ -78,6 +80,87 @@
       console.error('Error during service worker registration:', e);
     });
   }
-
   // Your custom JavaScript goes here
+
+  // constants
+  /*var CORRECT_ANSWER_TEXT = 'Good job!';
+  var CORRECT_ANSWER_SYM = 'check';
+  var WRONG_ANSWER_TEXT = 'Oooo, no. Sorry!';
+  var WRONG_ANSWER_SYM = 'close';
+  var RIGHT = 'right';
+  var WRONG = 'wrong';
+  var PASS_TEXT = 'You passed!';
+  var PASS_SYM = 'sentiment_neutral';
+  var NEW = 'new';
+  var LIMBO = 'limbo';
+  var LOCKED = 'locked';
+  var NUM_J_CATS = 14209;
+  var NUM_DJ_CATS = 13631;
+  var NUM_FJ_CATS = 3593;*/
+
+  // initially undefined vars
+  /*var now;
+  var today;
+  var gameMonday;
+  var weekStart;
+  var gameArray;
+  var gameResultsObject;
+  var userResultsObject;
+  var fbGameLocation;
+  var dayIndex;
+  var connection;
+  var userId;
+  var connected;
+  var qIndex;
+  var practiceQ;*/
+  
+  // firebase vars
+  var fb = new Firebase('https://raffees.firebaseio.com');
+
+  // elements in index.html
+  var rafSplash = querySelector('#raf-splash');
+  /*var loginWindow = querySelector('#loginWindow');
+  var googleLogin = querySelector('#googleLogin');
+  var authButton = querySelector('#authButton');
+  var jpdyUserInput = querySelector('#jpdy-user-input');
+  var jpdyResultFeedback = querySelector('#jpdy-result-feedback');
+  var jpdyResultButtons = querySelector('#jpdy-result-buttons');
+  var jpdyUserAnswer = querySelector('#jpdy-user-answer');
+  var jpdyUserInputDisplay = querySelector('#jpdy-user-input-display');
+  var jpdyAnswer = querySelector('#jpdy-answer');
+  var jpdyResult = querySelector('#jpdy-result');
+  var jpdyValue = querySelector('#jpdy-value');
+  var jpdyScore = querySelector('#jpdy-score');
+  var jpdyDDWager = querySelector('#jpdy-dd-wager');
+  var jpdyValueDisplay = querySelector('#jpdy-value-display');
+  var jpdyButtonPrev = querySelector('#jpdy-button-prev');
+  var jpdyDDValue = querySelector('#jpdy-dd-value');
+  var jpdyClue = querySelector('#jpdy-clue');
+  var jpdyButtonNext = querySelector('#jpdy-button-next');
+  var jpdySpinner = querySelector('#jpdy-spinner');
+  var jpdyButtonPass = querySelector('#jpdy-button-pass');
+  var jpdyNavigateButtons = querySelector('#jpdy-navigate-buttons');
+  var jpdyHistoryTable = querySelector('#jpdy-history-table');*/
+
+  // general initialized vars
+  var raffleItems = [];
+  /*var loggedIn = false;
+  var todaysQs = [];*/
+
+  /* ** INITIALIZE ** */
+  init();
+
+  function init() {
+
+  }
+
+  rafSplash.addEventListener('animationend', hideSplash, false);
+
+  function hideSplash(e) {
+    if (e.animationName === 'hide') {
+      console.log(e);
+      rafSplash.classList.add('raf-hidden');
+    }
+  }
+
 })();

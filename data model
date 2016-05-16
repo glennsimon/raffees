@@ -1,6 +1,8 @@
 {
 	"people": {
 		authUidString: {
+			"userName": String,
+			"email": String,
 			"todaysTokens": Number,
 			"items": [
 				Number [item number]: [
@@ -16,7 +18,6 @@
 				...
 			},
 			"provider": String,
-			"userName": String
 		},
 		...
 	},
@@ -42,7 +43,7 @@
 }
 
 itemObject = {
-	"item": Number,
+	"itemNumber": Number,
 	"name": String,
 	"heroUrl": String [Example: "../images/Products/BMW/2015-BMW-F800R-New1.jpg"],
 	"logoUrl": String [Example: "../images/Products/BMW/BMW.svg"],
