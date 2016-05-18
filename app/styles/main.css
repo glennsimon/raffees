@@ -29,12 +29,12 @@ html, body {
   width: 100%;
   height: 100%;
 }
-img {
+/*img {
   left: 50%;
   top: 50%;
   transform: translate3d(-50%, -50%, 0px);
   max-height: 100%;
-}
+}*/
 .raf-flex {
   display: flex;
 }
@@ -78,11 +78,15 @@ img {
 #raf-token {
   height: 50px;
   width: 50px;
-  background-color: gold;
+  /*background-color: gold;
   border: 2px dotted white;
-  border-radius: 50%;
+  border-radius: 50%;*/
   opacity: 0;
   animation: reveal 2s 6s forwards, fallingToken 1s 6s forwards;
+}
+#raf-token>img {
+  max-width: 100%;
+  max-height: auto;
 }
 .raf-token--R {
   color: white;
@@ -128,6 +132,9 @@ img {
 }
 .raf-font--2x {
   font-size: 200%;
+}
+.raf-font--3x {
+  font-size: 300%;
 }
 #raf-name {
   opacity: 0;

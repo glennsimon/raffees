@@ -113,9 +113,9 @@
   var connected;
   var qIndex;
   var practiceQ;*/
-  
+
   // firebase vars
-  var fb = new Firebase('https://raffees.firebaseio.com');
+  var fbRef = new Firebase('https://raffees.firebaseio.com');
 
   // elements in index.html
   var rafSplash = querySelector('#raf-splash');
@@ -151,7 +151,12 @@
   init();
 
   function init() {
-
+    fbRef.child('activeItems').once('value', function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        raffleItems.push(childSnapshot.val());
+      });
+      console.log(raffleItems);
+    });
   }
 
   rafSplash.addEventListener('animationend', hideSplash, false);
