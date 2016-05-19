@@ -88,9 +88,17 @@ html, body {
   max-width: 100%;
   max-height: auto;
 }
-.raf-token--R {
-  color: white;
-  font-size: 200%;
+.raf-token__image {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  height: 100%;
+  left: 0;
+  width: 100%;
+  background-image: url("../images/raffees-token.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .raf-nav {
   position: fixed;
