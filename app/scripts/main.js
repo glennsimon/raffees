@@ -16,6 +16,7 @@
  *  limitations under the License
  *
  */
+
 /* eslint-env browser */
 (function() {
   'use strict';
@@ -82,8 +83,10 @@
   }
   // Your custom JavaScript goes here
 
+  var Firebase = Firebase || {};
+
   // constants
-  /*var CORRECT_ANSWER_TEXT = 'Good job!';
+  /* var CORRECT_ANSWER_TEXT = 'Good job!';
   var CORRECT_ANSWER_SYM = 'check';
   var WRONG_ANSWER_TEXT = 'Oooo, no. Sorry!';
   var WRONG_ANSWER_SYM = 'close';
@@ -99,7 +102,7 @@
   var NUM_FJ_CATS = 3593;*/
 
   // initially undefined vars
-  /*var now;
+  /* var now;
   var today;
   var gameMonday;
   var weekStart;
@@ -119,7 +122,7 @@
 
   // elements in index.html
   var rafSplash = querySelector('#raf-splash');
-  /*var loginWindow = querySelector('#loginWindow');
+  /* var loginWindow = querySelector('#loginWindow');
   var googleLogin = querySelector('#googleLogin');
   var authButton = querySelector('#authButton');
   var jpdyUserInput = querySelector('#jpdy-user-input');
@@ -144,7 +147,7 @@
 
   // general initialized vars
   var raffleItems = [];
-  /*var loggedIn = false;
+  /* var loggedIn = false;
   var todaysQs = [];*/
 
   /* ** INITIALIZE ** */
@@ -167,5 +170,4 @@
       rafSplash.classList.add('raf-hidden');
     }
   }
-
 })();
