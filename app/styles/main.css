@@ -88,14 +88,14 @@ html, body {
   max-width: 100%;
   max-height: auto;
 }
-.raf-token__image {
+#raf-token__image {
   position: fixed;
   overflow: hidden;
   top: 0;
   height: 100%;
   left: 0;
   width: 100%;
-  background-image: url("../images/Products/BMW/raffees-token.png");
+  background-image: url("../images/raffees-token.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -173,7 +173,7 @@ html, body {
   height: calc(100% - 105px);
   left: 0;
   width: 100%;
-  background-image: url("../images/Products/BMW/2015-BMW-F800R-New1.jpg");
+  background-image: url("../images/2015-BMW-F800R-New1.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -196,7 +196,7 @@ html, body {
 }
 #raf-strip__05 {
   opacity: 1;
-  background-image: url("../images/Products/BMW/BMW.svg");
+  background-image: url("../images/BMW.svg");
   background-position: center;
   background-size: 50px;
   background-repeat: no-repeat;
