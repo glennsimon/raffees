@@ -126,6 +126,9 @@
   };
   firebase.initializeApp(config);
 
+  var storage = firebase.storage();
+  var storageRef = storage.ref();
+
   // elements in index.html
   var rafSplash = querySelector('#raf-splash');
   /* var loginWindow = querySelector('#loginWindow');
