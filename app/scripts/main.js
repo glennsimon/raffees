@@ -119,10 +119,10 @@
 
   // firebase vars
   var config = {
-    apiKey: "AIzaSyCnKyiGWhuCCpmmulm7KgXZ9CFVVafhxzM",
-    authDomain: "raffees.firebaseapp.com",
-    databaseURL: "https://raffees.firebaseio.com",
-    storageBucket: "project-7820448091501737461.appspot.com",
+    apiKey: 'AIzaSyCnKyiGWhuCCpmmulm7KgXZ9CFVVafhxzM',
+    authDomain: 'raffees.firebaseapp.com',
+    databaseURL: 'https://raffees.firebaseio.com',
+    storageBucket: 'project-7820448091501737461.appspot.com'
   };
   firebase.initializeApp(config);
 
@@ -160,7 +160,7 @@
   init();
 
   function init() {
-    /*fbRef.child('activeItems').once('value', function(snapshot) {
+    /* fbRef.child('activeItems').once('value', function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
         raffleItems.push(childSnapshot.val());
       });
