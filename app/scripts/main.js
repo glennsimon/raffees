@@ -83,7 +83,7 @@
   }
   // Your custom JavaScript goes here
 
-  var Firebase = Firebase || {};
+  var firebase = firebase || {};
 
   // constants
   /* var CORRECT_ANSWER_TEXT = 'Good job!';
@@ -118,7 +118,13 @@
   var practiceQ;*/
 
   // firebase vars
-  var fbRef = new Firebase('https://raffees.firebaseio.com');
+  var config = {
+    apiKey: "AIzaSyCnKyiGWhuCCpmmulm7KgXZ9CFVVafhxzM",
+    authDomain: "raffees.firebaseapp.com",
+    databaseURL: "https://raffees.firebaseio.com",
+    storageBucket: "project-7820448091501737461.appspot.com",
+  };
+  firebase.initializeApp(config);
 
   // elements in index.html
   var rafSplash = querySelector('#raf-splash');
@@ -154,12 +160,12 @@
   init();
 
   function init() {
-    fbRef.child('activeItems').once('value', function(snapshot) {
+    /*fbRef.child('activeItems').once('value', function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
         raffleItems.push(childSnapshot.val());
       });
       console.log(raffleItems);
-    });
+    });*/
   }
 
   rafSplash.addEventListener('animationend', hideSplash, false);
