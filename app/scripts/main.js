@@ -118,16 +118,16 @@
   var practiceQ;*/
 
   // firebase vars
-  /* var config = {
+  var config = {
     apiKey: 'AIzaSyCnKyiGWhuCCpmmulm7KgXZ9CFVVafhxzM',
     authDomain: 'raffees.firebaseapp.com',
     databaseURL: 'https://raffees.firebaseio.com',
-    storageBucket: 'gs://project-7820448091501737461.appspot.com'
+    storageBucket: 'project-7820448091501737461.appspot.com'
   };
   firebase.initializeApp(config);
 
   var storage = firebase.storage();
-  var storageRef = storage.ref();*/
+  var storageRef = storage.ref();
 
   // elements in index.html
   var rafSplash = querySelector('#raf-splash');
