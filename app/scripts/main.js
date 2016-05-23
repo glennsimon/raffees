@@ -122,7 +122,7 @@
     apiKey: 'AIzaSyCnKyiGWhuCCpmmulm7KgXZ9CFVVafhxzM',
     authDomain: 'raffees.firebaseapp.com',
     databaseURL: 'https://raffees.firebaseio.com',
-    storageBucket: 'project-7820448091501737461.appspot.com'
+    storageBucket: 'gs://project-7820448091501737461.appspot.com'
   };
   firebase.initializeApp(config);
 
