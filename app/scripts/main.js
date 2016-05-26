@@ -17,6 +17,8 @@
  *
  */
 
+var firebase = firebase || {};
+
 /* eslint-env browser */
 (function() {
   'use strict';
@@ -83,8 +85,6 @@
   }
   // Your custom JavaScript goes here
 
-  var firebase = firebase || {};
-
   // constants
   /* var CORRECT_ANSWER_TEXT = 'Good job!';
   var CORRECT_ANSWER_SYM = 'check';
@@ -128,34 +128,14 @@
 
   var storage = firebase.storage();
   var storageRef = storage.ref();
+  var databaseRef = firebase.database();
 
   // elements in index.html
   var rafSplash = querySelector('#raf-splash');
-  /* var loginWindow = querySelector('#loginWindow');
-  var googleLogin = querySelector('#googleLogin');
-  var authButton = querySelector('#authButton');
-  var jpdyUserInput = querySelector('#jpdy-user-input');
-  var jpdyResultFeedback = querySelector('#jpdy-result-feedback');
-  var jpdyResultButtons = querySelector('#jpdy-result-buttons');
-  var jpdyUserAnswer = querySelector('#jpdy-user-answer');
-  var jpdyUserInputDisplay = querySelector('#jpdy-user-input-display');
-  var jpdyAnswer = querySelector('#jpdy-answer');
-  var jpdyResult = querySelector('#jpdy-result');
-  var jpdyValue = querySelector('#jpdy-value');
-  var jpdyScore = querySelector('#jpdy-score');
-  var jpdyDDWager = querySelector('#jpdy-dd-wager');
-  var jpdyValueDisplay = querySelector('#jpdy-value-display');
-  var jpdyButtonPrev = querySelector('#jpdy-button-prev');
-  var jpdyDDValue = querySelector('#jpdy-dd-value');
-  var jpdyClue = querySelector('#jpdy-clue');
-  var jpdyButtonNext = querySelector('#jpdy-button-next');
-  var jpdySpinner = querySelector('#jpdy-spinner');
-  var jpdyButtonPass = querySelector('#jpdy-button-pass');
-  var jpdyNavigateButtons = querySelector('#jpdy-navigate-buttons');
-  var jpdyHistoryTable = querySelector('#jpdy-history-table');*/
 
   // general initialized vars
   var raffleItems = [];
+  var currentItem = 5;
   /* var loggedIn = false;
   var todaysQs = [];*/
 
@@ -163,13 +143,99 @@
   init();
 
   function init() {
-    /* fbRef.child('activeItems').once('value', function(snapshot) {
-      snapshot.forEach(function(childSnapshot) {
+    databaseRef.ref('activeItems').once('value', function(snapshot) {
+      /*snapshot.forEach(function(childSnapshot) {
         raffleItems.push(childSnapshot.val());
-      });
+      });*/
+      //This only works if items are in order, with no missing indexes
+      raffleItems = snapshot.val();
       console.log(raffleItems);
-    });*/
+      populateHero();
+      createLogoBoxes();
+      //populateLogos();
+    });
+    //This code is for uploading files - must change security rules to allow write
+    //querySelector('#file').addEventListener('change', handleFileSelect, false);
   }
+
+  function populateHero() {
+    var heroUrlFilename = raffleItems[5].heroUrl;
+    var fileLocation;
+
+    //console.log(heroUrlFilename);
+    fileLocation = storageRef.child('images/Products/5/' + heroUrlFilename);
+    //console.log(fileLocation.bucket + '\n' + fileLocation.fullPath);
+    fileLocation.getDownloadURL().then(function(url) {
+      //console.log(url);
+      querySelector('#raf-hero').style.backgroundImage = 'url(' + url + ')';
+    }).catch(function(error) {
+      console.log('error:\n' + error);
+      // do something here?
+    });
+  }
+
+  function createLogoBoxes() {
+    var itemNum;
+    var logoElement;
+    var container = querySelector('#raf-strip');
+
+    for (itemNum = 0; itemNum < raffleItems.length; itemNum++) {
+      logoElement = document.createElement('div');
+      logoElement.style.backgroundSize = raffleItems[itemNum].logoWidth;
+      logoElement.classList.add('raf-strip__logo');
+      container.appendChild(logoElement);
+      populateLogo(itemNum, logoElement);
+    }
+  }
+
+  function populateLogos() {
+    var itemNum;
+
+    for (itemNum = 0; itemNum < raffleItems.length; itemNum++) {
+      populateLogo(itemNum);
+    }
+  }
+
+  function populateLogo(itemNum, logoElement) {
+    //var logoElement;
+    //var elementId;
+    var fileLocation;
+
+    fileLocation = storageRef.child('images/Products/' + String(itemNum) + '/' + raffleItems[itemNum].logoUrl);
+    //console.log(fileLocation.bucket + '\n' + fileLocation.fullPath);
+    storageRef.child('images/Products/' + String(itemNum) + '/' + raffleItems[itemNum].logoUrl).getDownloadURL().then(function(url) {
+      //elementId = '#raf-strip__' + String(100 + itemNum).slice(1);
+      //console.log(elementId);
+      //logoElement = querySelector(elementId);
+      logoElement.style.backgroundImage = 'url(' + url + ')';
+    }).catch(function(error) {
+      console.log('error:\n' + error);
+      // do something here?
+    });
+  }
+
+  /*function handleFileSelect(evt) {
+    var i, file;
+    var files = evt.target.files;
+    var itemNumber = '9';
+
+    evt.stopPropagation();
+    evt.preventDefault();
+
+    for (i = 0; i < files.length; i++) {
+      file = files[i];
+      var metadata = {
+        'contentType': file.type
+      }
+      var uploadTask = storageRef.child('images/Products/' + itemNumber + '/').child(file.name).put(file, metadata);
+      uploadTask.on('state_changed', null, function(error) {
+        console.error('Upload failed:', error);
+      }, function() {
+        console.log(uploadTask.snapshot.totalBytes, ' bytes.');
+        console.log(uploadTask.snapshot.metadata);
+      });
+    }
+  }*/
 
   rafSplash.addEventListener('animationend', hideSplash, false);
 
