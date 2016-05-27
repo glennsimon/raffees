@@ -144,7 +144,9 @@ var firebase = firebase || {};
 
   function init() {
     querySelector('.raf-nav--left').addEventListener('click', moveOne, false);
+    querySelector('.raf-nav--left').addEventListener('touchend', moveOne, false);
     querySelector('.raf-nav--right').addEventListener('click', moveOne, false);
+    querySelector('.raf-nav--right').addEventListener('touchend', moveOne, false);
     databaseRef.ref('activeItems').once('value', function(snapshot) {
       /* snapshot.forEach(function(childSnapshot) {
         raffleItems.push(childSnapshot.val());
@@ -167,7 +169,7 @@ var firebase = firebase || {};
         element;
 
     evt.stopPropagation();
-    // evt.preventDefault();
+    evt.preventDefault();
     // console.log(evt);
     element = evt.srcElement.localName === 'i' ? evt.srcElement : evt.children[0].srcElement;
     forward = element.innerText === 'keyboard_arrow_right';
