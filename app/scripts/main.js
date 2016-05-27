@@ -143,31 +143,107 @@ var firebase = firebase || {};
   init();
 
   function init() {
+    querySelector('.raf-nav--left').addEventListener('click', moveOne, false);
+    querySelector('.raf-nav--right').addEventListener('click', moveOne, false);
     databaseRef.ref('activeItems').once('value', function(snapshot) {
-      /*snapshot.forEach(function(childSnapshot) {
+      /* snapshot.forEach(function(childSnapshot) {
         raffleItems.push(childSnapshot.val());
       });*/
-      //This only works if items are in order, with no missing indexes
+      // This only works if items are in order, with no missing indices
       raffleItems = snapshot.val();
       console.log(raffleItems);
-      populateHero();
+      getRaffeesLogo();
       createLogoBoxes();
-      //populateLogos();
+      populateHero(currentItem);
     });
     //This code is for uploading files - must change security rules to allow write
     //querySelector('#file').addEventListener('change', handleFileSelect, false);
   }
 
-  function populateHero() {
-    var heroUrlFilename = raffleItems[5].heroUrl;
+  function moveOne(evt) {
+    var i, 
+        file, 
+        forward,
+        element;
+
+    evt.stopPropagation();
+    evt.preventDefault();
+    // console.log(evt);
+    element = evt.srcElement.localName === 'i' ? evt.srcElement : evt.children[0].srcElement;
+    forward = element.innerText === 'keyboard_arrow_right';
+    forward ? currentItem++ : currentItem--;
+    if (currentItem > raffleItems.length - 1) {
+      currentItem = 0;
+    }
+    if (currentItem < 0) {
+      currentItem = raffleItems.length - 1;
+    }
+    populateHero(currentItem);
+    shiftLogos(forward);
+  }
+
+  function shiftLogos(forward) {
+    var stripContainer = querySelector('#raf-strip');
+    var stripLogos = stripContainer.children;
+    var removedLogo;
+
+    // console.log(stripContainer);
+    // console.log(stripLogos);
+    // console.log(typeof stripLogos);
+
+    if (forward) {
+      removedLogo = stripLogos[0];
+      stripContainer.removeChild(removedLogo);
+      stripContainer.appendChild(removedLogo);
+    } else {
+      removedLogo = stripLogos[stripLogos.length - 1];
+      stripContainer.removeChild(removedLogo);
+      stripContainer.insertBefore(removedLogo, stripLogos[0]);
+    }
+  }
+
+  function getRaffeesLogo() {
     var fileLocation;
 
+    fileLocation = storageRef.child('images/raffees-token.PNG');
+    fileLocation.getDownloadURL().then(function(url) {
+      querySelector('#raf-token__image').style.backgroundImage = 'url(' + url + ')';
+    }).catch(function(error) {
+      console.log('error:\n' + error);
+      // do something here?
+    });
+  }
+
+  function populateHero(itemNum) {
+    var item = raffleItems[itemNum];
+    var heroUrlFilename = item.heroUrl;
+    var fileLocation;
+    var menu = querySelector('.raf-menu>i');
+    var share = querySelector('#raf-share>i');
+    var love = querySelector('#raf-love>i');
+
     //console.log(heroUrlFilename);
-    fileLocation = storageRef.child('images/Products/5/' + heroUrlFilename);
+    fileLocation = storageRef.child('images/Products/' + itemNum + '/' + heroUrlFilename);
     //console.log(fileLocation.bucket + '\n' + fileLocation.fullPath);
     fileLocation.getDownloadURL().then(function(url) {
       //console.log(url);
       querySelector('#raf-hero').style.backgroundImage = 'url(' + url + ')';
+      querySelector('.raf-item-name').textContent = item.name;
+      if (item.heroBackground === 'gray') {
+        menu.classList.remove('raf-font--gray');
+        share.classList.remove('raf-font--gray');
+        love.classList.remove('raf-font--gray');
+        menu.classList.add('raf-font--white');
+        share.classList.add('raf-font--white');
+        love.classList.add('raf-font--white');
+      } else {
+        menu.classList.remove('raf-font--white');
+        share.classList.remove('raf-font--white');
+        love.classList.remove('raf-font--white');
+        menu.classList.add('raf-font--gray');
+        share.classList.add('raf-font--gray');
+        love.classList.add('raf-font--gray');
+      }
     }).catch(function(error) {
       console.log('error:\n' + error);
       // do something here?
