@@ -167,7 +167,7 @@ var firebase = firebase || {};
         element;
 
     evt.stopPropagation();
-    evt.preventDefault();
+    // evt.preventDefault();
     // console.log(evt);
     element = evt.srcElement.localName === 'i' ? evt.srcElement : evt.children[0].srcElement;
     forward = element.innerText === 'keyboard_arrow_right';

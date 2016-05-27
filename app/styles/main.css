@@ -217,18 +217,6 @@ html, body {
   right: 0;
   background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1));
 }
-/*#raf-strip__05 {
-  opacity: 1;
-}
-#raf-strip__04, #raf-strip__06 {
-  opacity: 0.3;
-}
-#raf-strip__03, #raf-strip__07 {
-  opacity: 0.2;
-}
-#raf-strip__00, #raf-strip__01, #raf-strip__02, #raf-strip__08, #raf-strip__09, #raf-strip__10 {
-  opacity: 0.1;
-}*/
 .raf-strip__logo {
   background-color: white;
   width: 100px;
@@ -267,4 +255,7 @@ html, body {
   to {
     transform: translate3d(0px, -20px, 0px) rotate(0deg);
   }
+}
+@media (orientation: landscape) {
+  
 }
