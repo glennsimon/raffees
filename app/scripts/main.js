@@ -132,6 +132,8 @@ var firebase = firebase || {};
 
   // elements in index.html
   var rafSplash = querySelector('#raf-splash');
+  var navRight = querySelector('.raf-nav--right');
+  var navLeft = querySelector('.raf-nav--left');
 
   // general initialized vars
   var raffleItems = [];
@@ -143,8 +145,8 @@ var firebase = firebase || {};
   init();
 
   function init() {
-    querySelector('.raf-nav--left').addEventListener('click', moveOne, false);
-    querySelector('.raf-nav--right').addEventListener('click', moveOne, false);
+    navLeft.addEventListener('click', moveOne);
+    navRight.addEventListener('click', moveOne);
     databaseRef.ref('activeItems').once('value', function(snapshot) {
       /* snapshot.forEach(function(childSnapshot) {
         raffleItems.push(childSnapshot.val());
