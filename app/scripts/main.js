@@ -107,6 +107,7 @@ var firebase = firebase || {};
   // elements in index.html
   var navRight = querySelector('.raf-nav--right>i');
   var navLeft = querySelector('.raf-nav--left>i');
+  var infoButton = querySelector('#raf-info');
 
   // general initialized vars
   var raffleItems = [];
@@ -118,6 +119,7 @@ var firebase = firebase || {};
   function init() {
     navLeft.addEventListener('click', moveOne);
     navRight.addEventListener('click', moveOne);
+    infoButton.addEventListener('click', loadInfo);
     // rafSplash.addEventListener('animationend', hideSplash);
     databaseRef.ref('activeItems').once('value', function(snapshot) {
       /* snapshot.forEach(function(childSnapshot) {
@@ -196,6 +198,7 @@ var firebase = firebase || {};
     var share = querySelector('#raf-share>i');
     var love = querySelector('#raf-love>i');
     var name = querySelector('.raf-item-name');
+    var info = querySelector('#raf-info>i');
 
     // console.log(heroUrlFilename);
     fileLocation =
@@ -210,19 +213,23 @@ var firebase = firebase || {};
         share.classList.remove('raf-font--gray');
         love.classList.remove('raf-font--gray');
         name.classList.remove('raf-font--gray');
+        info.classList.remove('raf-font--gray');
         menu.classList.add('raf-font--white');
         share.classList.add('raf-font--white');
         love.classList.add('raf-font--white');
         name.classList.add('raf-font--white');
+        info.classList.add('raf-font--white');
       } else {
         menu.classList.remove('raf-font--white');
         share.classList.remove('raf-font--white');
         love.classList.remove('raf-font--white');
         name.classList.remove('raf-font--white');
+        info.classList.remove('raf-font--white');
         menu.classList.add('raf-font--gray');
         share.classList.add('raf-font--gray');
         love.classList.add('raf-font--gray');
         name.classList.add('raf-font--gray');
+        info.classList.add('raf-font--gray');
       }
     }).catch(function(error) {
       console.log('error:\n' + error);
@@ -261,6 +268,10 @@ var firebase = firebase || {};
       console.log('error:\n' + error);
       // do something here?
     });
+  }
+
+  function loadInfo(e) {
+    window.location.href = raffleItems[currentItem].siteUrl;
   }
 
   // This code is for uploading files - must change security rules to allow write

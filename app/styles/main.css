@@ -54,6 +54,9 @@ html, body {
 .raf-spacer {
   flex: 1;
 }
+.raf-spacer--8px {
+  width: 8px;
+}
 .raf-zero-height {
   height: 0;
 }
