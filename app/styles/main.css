@@ -233,11 +233,17 @@ html, body {
   }
 }
 @keyframes hide {
-  from {
+  0% {
     opacity: 1;
+    height: 100%;
   }
-  to {
+  99.9% {
     opacity: 0;
+    height: 100%;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
   }
 }
 @keyframes moveUp {
