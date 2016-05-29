@@ -35,6 +35,36 @@ html, body {
   transform: translate3d(-50%, -50%, 0px);
   max-height: 100%;
 }*/
+#raf-content {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#raf-drawer {
+  position: fixed;
+  background-color: black;
+  top: 0;
+  left: -300px;
+  height: 100%;
+  width: 300px;
+  z-index: 5;
+  transition-property: left;
+  transition-duration: .2s;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+#raf-obfuscator {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgab(0, 0, 0, 0.5);
+  z-index: 4;
+}
 .raf-flex {
   display: flex;
 }
@@ -56,6 +86,7 @@ html, body {
 }
 .raf-spacer--8px {
   width: 8px;
+  height: 8px;
 }
 .raf-zero-height {
   height: 0;
@@ -81,9 +112,6 @@ html, body {
 #raf-token {
   height: 50px;
   width: 50px;
-  /*background-color: gold;
-  border: 2px dotted white;
-  border-radius: 50%;*/
   opacity: 0;
   animation: reveal 2s 6s forwards, fallingToken 1s 6s forwards;
 }
@@ -98,16 +126,14 @@ html, body {
   height: 100%;
   left: 0;
   width: 100%;
-  /*background-image: url("../images/raffees-token.PNG");*/
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .raf-nav {
-  position: fixed;
-  bottom: 25px;
-  height: 50px;
   width: 50px;
+  height: 50px;
+  margin: 16px;
   background-color: white;
   opacity: 0.75;
   border-radius: 50%;
@@ -137,7 +163,7 @@ html, body {
   top: 0;
 }
 .raf-hero--bottom {
-  bottom: 105px;
+  bottom: 20vh;
 }
 .raf-font--gray {
   color: #aaa;
@@ -169,21 +195,13 @@ html, body {
   animation: moveUp 1s 2s forwards, reveal 2s ease 4s forwards;
   overflow: hidden;
 }
-#raf-content {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
 #raf-hero {
   position: fixed;
   overflow: hidden;
   top: 0;
-  height: calc(100% - 105px);
+  height: calc(100% - 20vh);
   left: 0;
   width: 100%;
-  /*background-image: url("../images/2015-BMW-F800R-New1.jpg");*/
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -191,33 +209,37 @@ html, body {
 #raf-separator {
   position: fixed;
   background-color: black;
-  bottom: 100px;
+  bottom: calc(20vh - 5px);
   height: 5px;
   left: 0;
   width: 100%;
 }
 #raf-strip {
   position: fixed;
+  display: flex;
+  flex-direction: row;
   background-color: white;
   bottom: 0;
-  height: 100px;
+  height: calc(20vh - 5px);
   left: calc(50% - 550px);
   width: 1100px;
 }
 .raf-strip-cover {
   position: fixed;
-  bottom: 0;
-  height: 100px;
   z-index: 2;
 }
 .raf-strip-cover--left {
   left: 0;
-  right: calc(50% + 50px);
+  right: calc(50% + 10vh - 2.5px);
+  bottom: 0;
+  top: calc(80vh + 5px);
   background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.5));
 }
 .raf-strip-cover--right {
-  left: calc(50% + 50px);
+  left: calc(50% + 10vh - 2.5px);
   right: 0;
+  bottom: 0;
+  top: calc(80vh + 5px);
   background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1));
 }
 .raf-strip__logo {
@@ -265,6 +287,55 @@ html, body {
     transform: translate3d(0px, -20px, 0px) rotate(0deg);
   }
 }
-@media (orientation: landscape) {
-  
+@media (orientation: landscape) and (max-width: 800px) {
+  #raf-content {
+    flex-direction: row;
+  }
+  #raf-hero {
+    height: 100%;
+    left: 20vw;
+    width: calc(100% - 20vw);
+  }
+  #raf-header, #raf-love {
+    left: 20vw;
+    width: calc(100% - 20vw);
+  }
+  .raf-hero--bottom {
+    bottom: 0;
+  }
+  #raf-separator {
+    top: 0;
+    height: 100%;
+    left: calc(20vw - 5px);
+    width: 5px;
+  }
+  #raf-strip {
+    flex-direction: column;
+    left: 0;
+    width: calc(20vw - 5px);
+    top: calc(50% - 110vw + 25px);
+    height: 220vw;
+  }
+  .raf-strip__logo {
+    width: calc(20vw - 5px);
+    height: calc(20vw - 5px);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .raf-strip-cover--left {
+    flex-direction: column;
+    top: 0;
+    bottom: calc(50% + 10vw - 2.5px);
+    left: 0;
+    right: calc(80vw + 5px);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.5));
+  }
+  .raf-strip-cover--right {
+    flex-direction: column;
+    top: calc(50% + 10vw - 2.5px);
+    bottom: 0;
+    left: 0;
+    right: calc(80vw + 5px);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1));
+  }
 }
