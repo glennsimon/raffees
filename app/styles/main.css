@@ -140,8 +140,8 @@ html, body {
   color: #aaa;
   z-index: 10;
   text-align: center;
-  /*animation: hide 1s 9s forwards; CHANGE THIS BACK LATER*/
-  animation: hide 1s forwards; 
+  animation: hide 1s 9s forwards; CHANGE THIS BACK LATER
+  /*animation: hide 1s forwards; */
 }
 .raf-splash--content {
   height: 100%;
