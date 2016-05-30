@@ -48,7 +48,6 @@ html, body {
   position: fixed;
   background-color: black;
   top: 0;
-  left: -300px;
   height: 100%;
   width: 300px;
   z-index: 5;
@@ -62,8 +61,14 @@ html, body {
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: rgab(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 4;
+}
+.raf-open {
+  left: 0;
+}
+.raf-closed {
+  left: -300px;
 }
 .raf-flex {
   display: flex;

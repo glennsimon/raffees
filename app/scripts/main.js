@@ -108,6 +108,9 @@ var firebase = firebase || {};
   var navRight = querySelector('.raf-nav--right>i');
   var navLeft = querySelector('.raf-nav--left>i');
   var infoButton = querySelector('#raf-info');
+  var menu = querySelector('.raf-menu');
+  var drawer = querySelector('#raf-drawer');
+  var obfuscator = querySelector('#raf-obfuscator');
 
   // general initialized vars
   var raffleItems = [];
@@ -120,6 +123,8 @@ var firebase = firebase || {};
     navLeft.addEventListener('click', moveOne);
     navRight.addEventListener('click', moveOne);
     infoButton.addEventListener('click', loadInfo);
+    menu.addEventListener('click', openDrawer);
+    obfuscator.addEventListener('click', closeDrawer);
     // rafSplash.addEventListener('animationend', hideSplash);
     databaseRef.ref('activeItems').once('value', function(snapshot) {
       /* snapshot.forEach(function(childSnapshot) {
@@ -175,6 +180,18 @@ var firebase = firebase || {};
       stripContainer.removeChild(removedLogo);
       stripContainer.insertBefore(removedLogo, stripLogos[0]);
     }
+  }
+
+  function openDrawer() {
+    obfuscator.classList.remove('raf-hidden');
+    drawer.classList.remove('raf-closed');
+    drawer.classList.add('raf-open');
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('raf-open');
+    drawer.classList.add('raf-closed');
+    obfuscator.classList.add('raf-hidden');
   }
 
   function getRaffeesLogo() {
@@ -270,7 +287,7 @@ var firebase = firebase || {};
     });
   }
 
-  function loadInfo(e) {
+  function loadInfo() {
     window.location.href = raffleItems[currentItem].siteUrl;
   }
 
