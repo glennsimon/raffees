@@ -61,7 +61,32 @@
     </div>
     <!-- for uploading image files to firebase storage -->
     <!-- <input type="file" id="file" name="files" multiple> -->
-    <div id="raf-drawer" class="raf-closed"></div>
+    <div id="raf-drawer" class="raf-flex raf-flex--vertical raf-closed">
+      <div class="raf-drawer__header raf-flex raf-flex--vertical">
+        <div id="raf-user__image">
+          <i class="material-icons raf-font--giant">face</i>
+        </div>
+        <div id="raf-user__name">Joe User</div>
+        <div class="raf-line--horizontal"></div>
+      </div>
+      <div class="raf-drawer__content raf-flex raf-flex--vertical">
+        <div class="raf-drawer__item raf-flex raf-flex--horizontal">
+          <i class="material-icons">account_balance</i> &nbsp;Remaining Tokens:&nbsp;&nbsp;
+          <span id="raf-token-count">4</span>
+        </div>
+        <div class="raf-drawer__item raf-flex raf-flex--horizontal">
+          <i class="material-icons raf-font--gold">favorite</i> &nbsp;Token Distribution
+        </div>
+        <div class="raf-drawer__item raf-flex raf-flex--horizontal">
+          <i class="material-icons">share</i> &nbsp;Share this app!
+          <span id="raf-token-count">4</span>
+        </div>
+        <div class="raf-spacer"></div>
+        <div class="raf-drawer__item raf-flex raf-flex--horizontal">
+          <i class="material-icons">settings</i> &nbsp;Settings
+        </div>
+      </div>
+    </div>
     <div id="raf-obfuscator" class="raf-hidden"></div>
     <div id="raf-content">
       <div id="raf-hero">

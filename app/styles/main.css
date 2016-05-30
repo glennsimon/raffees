@@ -44,17 +44,6 @@ html, body {
   width: 100%;
   height: 100%;
 }
-#raf-drawer {
-  position: fixed;
-  background-color: black;
-  top: 0;
-  height: 100%;
-  width: 300px;
-  z-index: 5;
-  transition-property: left;
-  transition-duration: .2s;
-  transition-timing-function: cubic-bezier(.4,0,.2,1);
-}
 #raf-obfuscator {
   position: fixed;
   left: 0;
@@ -63,6 +52,48 @@ html, body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 4;
+}
+#raf-drawer {
+  position: fixed;
+  background-color: black;
+  color: white;
+  top: 0;
+  height: 100%;
+  width: 300px;
+  z-index: 5;
+  transition-property: left;
+  transition-duration: .2s;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+.raf-drawer__header {
+  align-items: center;
+}
+.raf-drawer__item {
+  align-items: center;
+  height: 50px;
+  margin-left: 5%;
+}
+#raf-user__image {
+  width: 75px;
+  height: 75px;
+  background-color: white;
+  color: blue;
+  border-radius: 50%;
+  text-align: center;
+  align-self: center;
+  margin: 8px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+#raf-user__name {
+  margin: 8px;
+}
+.raf-line--horizontal {
+  width: 90%;
+  height: 1px;
+  background-color: white;
 }
 .raf-open {
   left: 0;
@@ -109,7 +140,8 @@ html, body {
   color: #aaa;
   z-index: 10;
   text-align: center;
-  animation: hide 1s 9s forwards;
+  /*animation: hide 1s 9s forwards; CHANGE THIS BACK LATER*/
+  animation: hide 1s forwards; 
 }
 .raf-splash--content {
   height: 100%;
@@ -179,11 +211,14 @@ html, body {
 .raf-font--black {
   color: black;
 }
+.raf-font--gold {
+  color: gold;
+}
 .raf-font--2x {
   font-size: 200%;
 }
-.raf-font--3x {
-  font-size: 300%;
+.raf-font--giant {
+  font-size: 400%;
 }
 #raf-name {
   opacity: 0;
