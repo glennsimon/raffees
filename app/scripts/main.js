@@ -86,7 +86,7 @@ var firebase = firebase || {};
   // Your custom JavaScript goes here
 
   // constants
-  /* var CORRECT_ANSWER_TEXT = 'Good job!'*/
+  var TOKENS_REMAINING = 'Tokens Remaining: ';
 
   // initially undefined vars
   /* var now;*/
@@ -111,10 +111,13 @@ var firebase = firebase || {};
   var menu = querySelector('.raf-menu');
   var drawer = querySelector('#raf-drawer');
   var obfuscator = querySelector('#raf-obfuscator');
+  var love = querySelector('#raf-love>i');
+  var tokenMessage = querySelector('#raf-token-message');
 
   // general initialized vars
   var raffleItems = [];
   var currentItem = 5;
+  var tokens = 4;
 
   /* ** INITIALIZE ** */
   init();
@@ -123,6 +126,7 @@ var firebase = firebase || {};
     navLeft.addEventListener('click', moveOne);
     navRight.addEventListener('click', moveOne);
     infoButton.addEventListener('click', loadInfo);
+    love.addEventListener('click', selectItem);
     menu.addEventListener('click', openDrawer);
     obfuscator.addEventListener('click', closeDrawer);
     // rafSplash.addEventListener('animationend', hideSplash);
@@ -148,6 +152,7 @@ var firebase = firebase || {};
     // evt.stopPropagation();
     // evt.preventDefault();
     // console.log(evt);
+    tokenMessage.classList.remove('raf-token-msg-anim');
     element = evt.srcElement.localName === 'i' ?
       evt.srcElement : evt.children[0].srcElement;
     forward = element.innerText === 'keyboard_arrow_right';
@@ -160,6 +165,11 @@ var firebase = firebase || {};
     }
     populateHero(currentItem);
     shiftLogos(forward);
+    if (raffleItems[currentItem].selected) {
+      love.style = 'color: gold;';
+    } else {
+      love.style = '';
+    }
   }
 
   function shiftLogos(forward) {
@@ -180,6 +190,31 @@ var firebase = firebase || {};
       stripContainer.removeChild(removedLogo);
       stripContainer.insertBefore(removedLogo, stripLogos[0]);
     }
+  }
+
+  function selectItem() {
+    if (raffleItems[currentItem].selected) {
+      love.style = '';
+      delete raffleItems[currentItem].selected;
+      tokens++;
+    } else if (tokens > 0) {
+      love.style = 'color: gold;';
+      raffleItems[currentItem].selected = true;
+      tokens--;
+    }
+    showTokensMessage();
+    querySelector('#raf-token-count').textContent = tokens;
+  }
+
+  function showTokensMessage() {
+    if (tokens > 1) {
+      tokenMessage.textContent = 'You have ' + tokens + ' tokens left!';
+    } else if (tokens > 0) {
+      tokenMessage.textContent = 'You have ' + tokens + ' token left!';
+    } else {
+      tokenMessage.textContent = 'No more tokens. More tomorrow!';
+    }
+    tokenMessage.classList.add('raf-token-msg-anim');
   }
 
   function openDrawer() {
@@ -213,7 +248,6 @@ var firebase = firebase || {};
     var fileLocation;
     var menu = querySelector('.raf-menu>i');
     var share = querySelector('#raf-share>i');
-    var love = querySelector('#raf-love>i');
     var name = querySelector('.raf-item-name');
     var info = querySelector('#raf-info>i');
 
