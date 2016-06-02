@@ -172,12 +172,11 @@ html, body {
   height: 50px;
   margin: 16px;
   background-color: white;
-  opacity: 0.75;
   border-radius: 50%;
   z-index: 3;
 }
 .raf-shadow {
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);  
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,.14),0 6px 2px -4px rgba(0,0,0,.2),0 2px 10px 0 rgba(0,0,0,.12);  
 }
 .raf-nav--left {
   left: 25px;
@@ -198,7 +197,7 @@ html, body {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 20vh;
+  bottom: 105px;
   height: 48px;
   text-align: center;
   opacity: 0;
@@ -207,7 +206,7 @@ html, body {
   font-size: 150%;
 }
 .raf-token-msg-anim {
-  animation: reveal-hold 5s, shift-up 5s;
+  animation: reveal-hold 1s, shift-up 1s;
 }
 .raf-item-name {
   padding: 0 8px;
@@ -216,7 +215,7 @@ html, body {
   top: 0;
 }
 .raf-hero--bottom {
-  bottom: 20vh;
+  bottom: 105px;
 }
 .raf-font--gray {
   color: #aaa;
@@ -255,7 +254,7 @@ html, body {
   position: fixed;
   overflow: hidden;
   top: 0;
-  bottom: 20vh;
+  bottom: 105px;
   left: 0;
   right: 0;
   background-position: center;
@@ -265,7 +264,7 @@ html, body {
 #raf-separator {
   position: fixed;
   background-color: black;
-  bottom: calc(20vh - 5px);
+  bottom: 100px;
   height: 5px;
   left: 0;
   width: 100%;
@@ -276,7 +275,7 @@ html, body {
   flex-direction: row;
   background-color: white;
   bottom: 0;
-  height: calc(20vh - 5px);
+  height: 100px;
   left: calc(50% - 550px);
   width: 1100px;
 }
@@ -286,17 +285,17 @@ html, body {
 }
 .raf-strip-cover--left {
   left: 0;
-  right: calc(50% + 10vh - 2.5px);
+  right: calc(50% + 50px);
   bottom: 0;
-  top: calc(80vh + 5px);
-  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.5));
+  top: calc(100% - 105px);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
 }
 .raf-strip-cover--right {
-  left: calc(50% + 10vh - 2.5px);
+  left: calc(50% + 50px);
   right: 0;
   bottom: 0;
-  top: calc(80vh + 5px);
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1));
+  top: calc(100% - 105px);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
 }
 .raf-strip__logo {
   background-color: white;
@@ -315,7 +314,8 @@ html, body {
 @keyframes reveal-hold {
   0% { opacity: 0; }
   20% { opacity: 1; }
-  100% { opacity: 1; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
 }
 @keyframes shift-up {
   0% { transform: translate3d(0px, 0px, 0px); }
@@ -358,10 +358,10 @@ html, body {
   }
   #raf-hero {
     bottom: 0;
-    left: 20vw;
+    left: 155px;
   }
   #raf-header, #raf-love {
-    left: 20vw;
+    left: 155px;
   }
   .raf-hero--bottom {
     bottom: 0;
@@ -369,38 +369,38 @@ html, body {
   #raf-separator {
     top: 0;
     height: 100%;
-    left: calc(20vw - 5px);
+    left: 150px;
     width: 5px;
   }
   #raf-strip {
     flex-direction: column;
     left: 0;
-    width: calc(20vw - 5px);
-    top: calc(50% - 110vw + 25px);
-    height: 220vw;
+    width: 150px;
+    top: calc(50% - 825px);
+    height: 1650px;
   }
   .raf-strip__logo {
-    width: calc(20vw - 5px);
-    height: calc(20vw - 5px);
+    width: 150px;
+    height: 150px;
   }
   .raf-strip-cover--left {
     flex-direction: column;
     top: 0;
-    bottom: calc(50% + 10vw - 2.5px);
+    bottom: calc(50% + 75px);
     left: 0;
-    right: calc(80vw + 5px);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.5));
+    right: calc(100% - 155px);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
   }
   .raf-strip-cover--right {
     flex-direction: column;
-    top: calc(50% + 10vw - 2.5px);
+    top: calc(50% + 75px);
     bottom: 0;
     left: 0;
-    right: calc(80vw + 5px);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1));
+    right: calc(100% - 155px);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
   }
   #raf-token-message {
-    left: 20vw;
+    left: 155px;
     bottom: 0;
   }
 }
@@ -408,36 +408,23 @@ html, body {
   .raf-menu {
     display: none;
   }
-  #raf-hero {
-    left: calc(300px + 15vw);
-  }
-  #raf-header, #raf-love {
-    left: calc(300px + 15vw);
+  #raf-hero, #raf-header, #raf-love {
+    left: 455px;
   }
   #raf-separator {
-    left: calc(300px + 15vw - 5px);
+    left: 450px;
   }
   #raf-strip {
     left: 300px;
-    width: calc(15vw - 5px);
-    top: calc(50% - 82.5vw + 25px);
   }
-  .raf-strip__logo {
-    width: calc(15vw - 5px);
-    height: calc(15vw - 5px);
-  }
-  .raf-strip-cover--left {
+  .raf-strip-cover--left, .raf-strip-cover--right {
     left: 300px;
-    right: calc(85vw + 5px - 300px);
-  }
-  .raf-strip-cover--right {
-    left: 300px;
-    right: calc(85vw + 5px - 300px);
+    right: calc(100% - 455px);
   }
   #raf-drawer {
     left: 0;
   }
   #raf-token-message {
-    left: calc(300px + 15vw);
+    left: 455px;
   }
 }

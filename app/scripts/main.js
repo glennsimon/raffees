@@ -112,7 +112,6 @@ var firebase = firebase || {};
   var drawer = querySelector('#raf-drawer');
   var obfuscator = querySelector('#raf-obfuscator');
   var love = querySelector('#raf-love>i');
-  var tokenMessage = querySelector('#raf-token-message');
   var strip = querySelector('#raf-strip');
 
   // general initialized vars
@@ -165,7 +164,6 @@ var firebase = firebase || {};
     // evt.stopPropagation();
     // evt.preventDefault();
     // console.log(evt);
-    tokenMessage.classList.remove('raf-token-msg-anim');
     element = evt.srcElement.localName === 'i' ?
       evt.srcElement : evt.children[0].srcElement;
     forward = element.innerText === 'keyboard_arrow_right';
@@ -220,14 +218,20 @@ var firebase = firebase || {};
   }
 
   function showTokensMessage() {
+    var tokenMessage = querySelector('#raf-token-message');
+    var tokenMessageClone;
+
+    tokenMessage.classList.remove('raf-token-msg-anim');
+    tokenMessageClone = tokenMessage.cloneNode(true);
+    tokenMessage.parentNode.replaceChild(tokenMessageClone, tokenMessage);
     if (tokens > 1) {
-      tokenMessage.textContent = '' + tokens + ' tokens left!';
+      tokenMessageClone.textContent = '' + tokens + ' tokens left!';
     } else if (tokens > 0) {
-      tokenMessage.textContent = '' + tokens + ' token left!';
+      tokenMessageClone.textContent = '' + tokens + ' token left!';
     } else {
-      tokenMessage.textContent = 'More tokens tomorrow!';
+      tokenMessageClone.textContent = 'More tokens tomorrow!';
     }
-    tokenMessage.classList.add('raf-token-msg-anim');
+    tokenMessageClone.classList.add('raf-token-msg-anim');
   }
 
   function openDrawer() {
