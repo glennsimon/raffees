@@ -113,6 +113,7 @@ var firebase = firebase || {};
   var obfuscator = querySelector('#raf-obfuscator');
   var love = querySelector('#raf-love>i');
   var tokenMessage = querySelector('#raf-token-message');
+  var strip = querySelector('#raf-strip');
 
   // general initialized vars
   var raffleItems = [];
@@ -121,6 +122,7 @@ var firebase = firebase || {};
 
   /* ** INITIALIZE ** */
   init();
+  window.onresize = resize;
 
   function init() {
     navLeft.addEventListener('click', moveOne);
@@ -143,6 +145,17 @@ var firebase = firebase || {};
     });
     // This code is for uploading files - must change security rules to allow write
     // querySelector('#file').addEventListener('change', handleFileSelect, false);
+  }
+
+  function resize() {
+    var ratio = strip.clientHeight / strip.clientWidth;
+    if (ratio < 1) {
+      navLeft.textContent = 'keyboard_arrow_left';
+      navRight.textContent = 'keyboard_arrow_right';
+    } else {
+      navLeft.textContent = 'keyboard_arrow_up';
+      navRight.textContent = 'keyboard_arrow_down';
+    }
   }
 
   function moveOne(evt) {
@@ -208,11 +221,11 @@ var firebase = firebase || {};
 
   function showTokensMessage() {
     if (tokens > 1) {
-      tokenMessage.textContent = 'You have ' + tokens + ' tokens left!';
+      tokenMessage.textContent = '' + tokens + ' tokens left!';
     } else if (tokens > 0) {
-      tokenMessage.textContent = 'You have ' + tokens + ' token left!';
+      tokenMessage.textContent = '' + tokens + ' token left!';
     } else {
-      tokenMessage.textContent = 'No more tokens. More tomorrow!';
+      tokenMessage.textContent = 'More tokens tomorrow!';
     }
     tokenMessage.classList.add('raf-token-msg-anim');
   }
@@ -291,15 +304,15 @@ var firebase = firebase || {};
   function createLogoBoxes() {
     var itemNum;
     var logoElement;
-    var container = querySelector('#raf-strip');
 
     for (itemNum = 0; itemNum < raffleItems.length; itemNum++) {
       logoElement = document.createElement('div');
       logoElement.style.backgroundSize = raffleItems[itemNum].logoWidth;
       logoElement.classList.add('raf-strip__logo');
-      container.appendChild(logoElement);
+      strip.appendChild(logoElement);
       populateLogo(itemNum, logoElement);
     }
+    resize();
   }
 
   /* function populateLogos() {

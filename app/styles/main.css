@@ -204,6 +204,7 @@ html, body {
   opacity: 0;
   color: gold;
   z-index: 1;
+  font-size: 150%;
 }
 .raf-token-msg-anim {
   animation: reveal-hold 5s, shift-up 5s;
@@ -403,7 +404,7 @@ html, body {
     bottom: 0;
   }
 }
-@media (orientation: landscape) and (min-width: 800px) {
+@media (orientation: landscape) and (min-width: 1000px) {
   .raf-menu {
     display: none;
   }
