@@ -113,6 +113,9 @@ var firebase = firebase || {};
   var obfuscator = querySelector('#raf-obfuscator');
   var love = querySelector('#raf-love>i');
   var strip = querySelector('#raf-strip');
+  var share = querySelector('#raf-share');
+  var shareHint = querySelector('#raf-share-hint');
+  var shareDismissButton = querySelector('#raf-share-hint>button');
 
   // general initialized vars
   var raffleItems = [];
@@ -130,6 +133,8 @@ var firebase = firebase || {};
     love.addEventListener('click', selectItem);
     menu.addEventListener('click', openDrawer);
     obfuscator.addEventListener('click', closeDrawer);
+    share.addEventListener('click', showShareMessage);
+    shareDismissButton.addEventListener('click', dismissShare);
     // rafSplash.addEventListener('animationend', hideSplash);
     databaseRef.ref('activeItems').once('value', function(snapshot) {
       /* snapshot.forEach(function(childSnapshot) {
@@ -144,6 +149,14 @@ var firebase = firebase || {};
     });
     // This code is for uploading files - must change security rules to allow write
     // querySelector('#file').addEventListener('change', handleFileSelect, false);
+  }
+
+  function showShareMessage() {
+    shareHint.classList.remove('raf-hidden');
+  }
+
+  function dismissShare() {
+    shareHint.classList.add('raf-hidden');
   }
 
   function resize() {
