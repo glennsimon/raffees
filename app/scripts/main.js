@@ -276,10 +276,7 @@ var firebase = firebase || {};
     var item = raffleItems[itemNum];
     var heroUrlFilename = item.heroUrl;
     var fileLocation;
-    var menu = querySelector('.raf-menu>i');
-    var share = querySelector('#raf-share>i');
-    var name = querySelector('.raf-item-name');
-    var info = querySelector('#raf-info>i');
+    var hero = querySelector('#raf-hero');
 
     // console.log(heroUrlFilename);
     fileLocation =
@@ -290,27 +287,11 @@ var firebase = firebase || {};
       querySelector('#raf-hero').style.backgroundImage = 'url(' + url + ')';
       querySelector('.raf-item-name').textContent = item.name;
       if (item.heroBackground === 'gray') {
-        menu.classList.remove('raf-font--gray');
-        share.classList.remove('raf-font--gray');
-        love.classList.remove('raf-font--gray');
-        name.classList.remove('raf-font--gray');
-        info.classList.remove('raf-font--gray');
-        menu.classList.add('raf-font--white');
-        share.classList.add('raf-font--white');
-        love.classList.add('raf-font--white');
-        name.classList.add('raf-font--white');
-        info.classList.add('raf-font--white');
+        hero.classList.remove('raf-font--gray');
+        hero.classList.add('raf-font--white');
       } else {
-        menu.classList.remove('raf-font--white');
-        share.classList.remove('raf-font--white');
-        love.classList.remove('raf-font--white');
-        name.classList.remove('raf-font--white');
-        info.classList.remove('raf-font--white');
-        menu.classList.add('raf-font--gray');
-        share.classList.add('raf-font--gray');
-        love.classList.add('raf-font--gray');
-        name.classList.add('raf-font--gray');
-        info.classList.add('raf-font--gray');
+        hero.classList.remove('raf-font--white');
+        hero.classList.add('raf-font--gray');
       }
     }).catch(function(error) {
       console.log('error:\n' + error);
