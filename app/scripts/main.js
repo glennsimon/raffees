@@ -119,7 +119,7 @@ var firebase = firebase || {};
 
   // general initialized vars
   var raffleItems = [];
-  var currentItem = 5;
+  var currentItem = 9;
   var tokens = 4;
 
   /* ** INITIALIZE ** */
@@ -146,6 +146,9 @@ var firebase = firebase || {};
       getRaffeesLogo();
       createLogoBoxes();
       populateHero(currentItem);
+      for (var i = 0; i < 4; i++) {
+        shiftLogos(true);
+      }
     });
     // This code is for uploading files - must change security rules to allow write
     // querySelector('#file').addEventListener('change', handleFileSelect, false);
